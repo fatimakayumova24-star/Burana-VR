@@ -52,6 +52,7 @@ export default function App() {
           <div className="hidden md:flex items-center space-x-8 text-xs tracking-[0.2em] uppercase text-gray-600 dark:text-museum-muted">
             <a href="#about" className="hover:text-museum-dark dark:hover:text-museum-light transition-colors">About</a>
             <a href="#exhibition" className="hover:text-museum-dark dark:hover:text-museum-light transition-colors">Virtual Tour</a>
+            <a href="#references" className="hover:text-museum-dark dark:hover:text-museum-light transition-colors">Credits</a>
             <a href="#contact" className="hover:text-museum-dark dark:hover:text-museum-light transition-colors">Contact</a>
             <button 
               onClick={() => setIsDarkMode(!isDarkMode)} 
@@ -96,6 +97,7 @@ export default function App() {
             <div className="flex flex-col items-center space-y-8 text-lg tracking-[0.2em] uppercase">
               <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-museum-accent transition-colors">About</a>
               <a href="#exhibition" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-museum-accent transition-colors">Virtual Tour</a>
+              <a href="#references" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-museum-accent transition-colors">Credits</a>
               <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-museum-accent transition-colors">Contact</a>
             </div>
           </motion.div>
@@ -217,6 +219,37 @@ export default function App() {
           ></iframe>
         </motion.div>
       </main>
+
+      {/* References Section */}
+      <section id="references" className="py-24 md:py-32 px-6 md:px-12 max-w-4xl mx-auto border-t border-black/5 dark:border-white/5 text-center md:text-left">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="text-xs tracking-[0.2em] uppercase text-museum-accent mb-12 text-center">References & Credits</div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12 text-sm md:text-base text-gray-600 dark:text-museum-muted leading-relaxed">
+            <div>
+              <p className="font-serif text-xl md:text-2xl text-museum-dark dark:text-museum-light mb-2">Kubatbek Shakievich Tabaldiev</p>
+              <p>Candidate of History science, Archeologist,</p>
+              <p>Associate Professor, Kyrgyz-Turkish "Manas" University</p>
+              <p className="mt-2 tracking-widest"><a href="mailto:taryh@freenet.kg" className="hover:text-museum-accent transition-colors">taryh@freenet.kg</a></p>
+            </div>
+            <div>
+              <p className="font-serif text-xl md:text-2xl text-museum-dark dark:text-museum-light mb-2">Anita Alievna Shamenova</p>
+              <p>Director of the Republic Archeological and Architectural Museum at Burana Tower</p>
+              <p className="mt-2">Tel: (0-3138) 78-2-43</p>
+              <p className="tracking-widest"><a href="mailto:burana@freenet.kg" className="hover:text-museum-accent transition-colors">burana@freenet.kg</a></p>
+            </div>
+          </div>
+          <div className="pt-8 border-t border-black/10 dark:border-white/10 space-y-3 text-sm text-gray-600 dark:text-museum-muted text-center max-w-2xl mx-auto">
+            <p><strong>Translated by:</strong> Madeleine Reeves, American University - Central Asia.</p>
+            <p><strong>Photos and Graphic works:</strong> Executed by Tabaldiev K. Sh.</p>
+            <p><strong>Design:</strong> Omurbekov. T</p>
+          </div>
+        </motion.div>
+      </section>
 
       {/* Contact Section */}
       <section id="contact" className="py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto border-t border-black/5 dark:border-white/5 text-center">
