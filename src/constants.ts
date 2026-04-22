@@ -14,7 +14,7 @@ export interface Artifact {
 }
 
 export const SITE_CONTENT = {
-  museumName: "Open Air Burana Online Museum",
+  museumName: "Burana VR",
   navTitle: "Burana",
   
   // Hero Section
