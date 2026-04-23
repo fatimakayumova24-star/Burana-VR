@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, Sun, Moon, Menu, Mail, Instagram } from 'lucide-react';
-import { SITE_CONTENT } from './constants';
+import { ArrowRight, Sun, Moon, Menu, Mail, Instagram, X } from 'lucide-react';
+import { SITE_CONTENT, HISTORY_INFO } from './constants';
 
 // Helper to convert standard Google Drive share links into direct image links
 const getDirectImageUrl = (url: string) => {
@@ -167,36 +167,113 @@ export default function App() {
       </header>
 
       {/* About / Introduction Section */}
-      <section id="about" className="py-24 md:py-32 px-6 md:px-12 max-w-4xl mx-auto">
+      <section id="about" className="py-24 md:py-32 px-6 md:px-12 max-w-5xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col items-center text-center mb-16"
+          className="flex flex-col items-center text-center mb-20"
         >
           <h2 className="font-serif text-3xl md:text-5xl font-light mb-6 text-balance">
             {SITE_CONTENT.welcomeMessage}
           </h2>
           <div className="w-12 h-px bg-museum-accent mb-8 mx-auto"></div>
-          <p className="text-gray-600 dark:text-museum-muted text-sm md:text-base leading-relaxed mb-8">
+          <p className="text-gray-600 dark:text-museum-muted text-sm md:text-base leading-relaxed max-w-2xl">
             {SITE_CONTENT.introductionText}
           </p>
         </motion.div>
 
-        <div className="space-y-6 text-gray-700 dark:text-museum-light/80 text-sm md:text-base leading-relaxed">
-          {SITE_CONTENT.historyParagraphs.map((paragraph, index) => (
-            <motion.p 
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="text-justify md:text-left"
-            >
-              {paragraph}
-            </motion.p>
-          ))}
+        {/* Lead Text */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="mb-20 text-center max-w-4xl mx-auto"
+        >
+          <p className="font-serif text-xl md:text-2xl lg:text-3xl leading-relaxed md:leading-relaxed text-museum-dark dark:text-museum-light text-balance text-center md:text-justify max-w-[90%] mx-auto">
+            {HISTORY_INFO.lead}
+          </p>
+        </motion.div>
+
+        {/* Two Columns: Origins & Evolution */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 mb-20">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="flex items-center justify-center md:justify-start gap-4 mb-6">
+              <div className="w-8 h-px bg-museum-accent hidden md:block"></div>
+              <h3 className="text-sm tracking-[0.2em] uppercase text-museum-accent font-semibold">Origins & Meaning</h3>
+            </div>
+            <div className="space-y-4 text-gray-700 dark:text-museum-light/80 text-sm md:text-base leading-relaxed text-justify md:text-left">
+              {HISTORY_INFO.origins.map((p, i) => <p key={i}>{p}</p>)}
+            </div>
+          </motion.div>
+          
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="flex items-center justify-center md:justify-start gap-4 mb-6">
+              <div className="w-8 h-px bg-museum-accent hidden md:block"></div>
+              <h3 className="text-sm tracking-[0.2em] uppercase text-museum-accent font-semibold">Evolution & Craft</h3>
+            </div>
+            <div className="space-y-4 text-gray-700 dark:text-museum-light/80 text-sm md:text-base leading-relaxed text-justify md:text-left">
+              {HISTORY_INFO.evolution.map((p, i) => <p key={i}>{p}</p>)}
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Highlight Quote Grid spanning full width */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="relative bg-black/[0.03] dark:bg-white/[0.03] border border-black/5 dark:border-white/5 rounded-3xl p-8 md:p-12 mb-20 overflow-hidden text-center"
+        >
+          <div className="absolute left-0 top-0 w-1 h-full bg-museum-accent hidden md:block"></div>
+          <p className="font-serif text-lg md:text-xl text-museum-dark dark:text-museum-light italic leading-relaxed text-center text-balance">
+            "{HISTORY_INFO.quote}"
+          </p>
+        </motion.div>
+
+        {/* Bottom Columns: Spiritual & Attributes */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-center">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="md:col-span-7"
+          >
+            <div className="flex items-center justify-center md:justify-start gap-4 mb-6">
+              <div className="w-8 h-px bg-museum-accent hidden md:block"></div>
+              <h3 className="text-sm tracking-[0.2em] uppercase text-museum-accent font-semibold">Spiritual Guardians</h3>
+            </div>
+            <p className="text-gray-700 dark:text-museum-light/80 text-sm md:text-base leading-relaxed text-justify md:text-left">
+              {HISTORY_INFO.spiritual}
+            </p>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="md:col-span-5 bg-museum-accent/5 dark:bg-museum-accent/5 border border-museum-accent/10 rounded-2xl p-8 text-center md:text-left"
+          >
+            <h3 className="text-xs tracking-[0.2em] uppercase text-museum-accent font-semibold mb-4 text-center md:text-left">Physical Attributes</h3>
+            <p className="text-sm text-gray-700 dark:text-museum-light/80 leading-relaxed text-justify md:text-left">
+              {HISTORY_INFO.attributes}
+            </p>
+          </motion.div>
         </div>
 
         <motion.div 
@@ -204,11 +281,11 @@ export default function App() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mt-16 flex justify-center"
+          className="mt-20 flex justify-center"
         >
           <a 
             href="#exhibition" 
-            className="inline-flex items-center space-x-2 text-xs tracking-[0.15em] uppercase text-museum-accent hover:text-museum-dark dark:hover:text-white transition-colors"
+            className="inline-flex items-center space-x-3 bg-transparent border border-black/30 dark:border-museum-light/30 text-museum-dark dark:text-museum-light rounded-full px-8 py-4 text-xs tracking-[0.15em] uppercase hover:border-museum-accent dark:hover:border-museum-accent hover:text-museum-accent dark:hover:text-museum-accent transition-all duration-300"
           >
             <span>Enter Virtual Tour</span>
             <ArrowRight size={14} />
@@ -239,7 +316,9 @@ export default function App() {
             frameBorder="0" 
             scrolling="no" 
             src="https://art.kunstmatrix.com/apps/artspaces/?external=true&language=en&uid=143626&exhibition=15423381" 
-            className="w-full h-[60vh] md:h-[80vh] min-h-[500px]"
+            width="100%" 
+            height="600"
+            className="w-full"
           ></iframe>
         </motion.div>
       </main>
