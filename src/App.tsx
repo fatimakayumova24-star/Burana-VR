@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, Sun, Moon, Menu, Mail } from 'lucide-react';
+import { ArrowRight, Sun, Moon, Menu, Mail, Instagram } from 'lucide-react';
 import { SITE_CONTENT } from './constants';
 
 // Helper to convert standard Google Drive share links into direct image links
@@ -167,13 +167,13 @@ export default function App() {
       </header>
 
       {/* About / Introduction Section */}
-      <section id="about" className="py-24 md:py-32 px-6 md:px-12 max-w-4xl mx-auto text-center">
+      <section id="about" className="py-24 md:py-32 px-6 md:px-12 max-w-4xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col items-center"
+          className="flex flex-col items-center text-center mb-16"
         >
           <h2 className="font-serif text-3xl md:text-5xl font-light mb-6 text-balance">
             {SITE_CONTENT.welcomeMessage}
@@ -182,11 +182,35 @@ export default function App() {
           <p className="text-gray-600 dark:text-museum-muted text-sm md:text-base leading-relaxed mb-8">
             {SITE_CONTENT.introductionText}
           </p>
+        </motion.div>
+
+        <div className="space-y-6 text-gray-700 dark:text-museum-light/80 text-sm md:text-base leading-relaxed">
+          {SITE_CONTENT.historyParagraphs.map((paragraph, index) => (
+            <motion.p 
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="text-justify md:text-left"
+            >
+              {paragraph}
+            </motion.p>
+          ))}
+        </div>
+
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mt-16 flex justify-center"
+        >
           <a 
             href="#exhibition" 
             className="inline-flex items-center space-x-2 text-xs tracking-[0.15em] uppercase text-museum-accent hover:text-museum-dark dark:hover:text-white transition-colors"
           >
-            <span>Virtual Tour</span>
+            <span>Enter Virtual Tour</span>
             <ArrowRight size={14} />
           </a>
         </motion.div>
@@ -234,12 +258,12 @@ export default function App() {
               <p className="font-serif text-xl md:text-2xl text-museum-dark dark:text-museum-light mb-2">Kubatbek Shakievich Tabaldiev</p>
               <p>Candidate of History science, Archeologist,</p>
               <p>Associate Professor, Kyrgyz-Turkish "Manas" University</p>
-              <p className="mt-2 tracking-widest"><a href="mailto:taryh@freenet.kg" className="hover:text-museum-accent transition-colors">taryh@freenet.kg</a></p>
+              <p className="mt-2 tracking-widest"><a href="mailto:tarishah@freenet.kg" className="hover:text-museum-accent transition-colors">tarishah@freenet.kg</a></p>
             </div>
             <div>
-              <p className="font-serif text-xl md:text-2xl text-museum-dark dark:text-museum-light mb-2">Anita Alievna Shamenova</p>
-              <p>Director of the Republic Archeological and Architectural Museum at Burana Tower</p>
-              <p className="mt-2">Tel: (0-3138) 78-2-43</p>
+              <p className="font-serif text-xl md:text-2xl text-museum-dark dark:text-museum-light mb-2">Tokombaeva Tolgonay Kedeykhanovna</p>
+              <p>Director of the Republic Archaeological and Architectural Museum at Burana Tower</p>
+              <p className="mt-2">Tel: (0-3138) 7-31-18</p>
               <p className="tracking-widest"><a href="mailto:burana@freenet.kg" className="hover:text-museum-accent transition-colors">burana@freenet.kg</a></p>
             </div>
           </div>
@@ -247,6 +271,12 @@ export default function App() {
             <p><strong>Translated by:</strong> Madeleine Reeves, American University - Central Asia.</p>
             <p><strong>Photos and Graphic works:</strong> Executed by Tabaldiev K. Sh.</p>
             <p><strong>Design:</strong> Omurbekov. T</p>
+            <p className="mt-6 pt-4 border-t border-black/5 dark:border-white/5">
+              <strong>Article Source:</strong>{" "}
+              <a href="https://central-asia.guide/central-asia-guide/balbal-stone-statue/" target="_blank" rel="noopener noreferrer" className="hover:text-museum-accent transition-colors underline decoration-black/20 dark:decoration-white/20 underline-offset-4">
+                Central Asia Guide - Balbal Stone Statue
+              </a>
+            </p>
           </div>
         </motion.div>
       </section>
@@ -273,6 +303,15 @@ export default function App() {
             >
               <Mail size={18} />
               <span className="text-xs tracking-widest uppercase">kayumova_f@auca.kg</span>
+            </a>
+            <a 
+              href="https://www.instagram.com/burana.museum?igsh=MXR6d211czVidzR0cw=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-3 px-8 py-4 border border-black/20 dark:border-white/20 rounded-full hover:border-museum-accent dark:hover:border-museum-accent hover:text-museum-accent transition-colors"
+            >
+              <Instagram size={18} />
+              <span className="text-xs tracking-widest uppercase">Instagram</span>
             </a>
           </div>
         </motion.div>
