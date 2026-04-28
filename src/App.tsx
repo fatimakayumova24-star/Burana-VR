@@ -298,7 +298,7 @@ export default function App() {
         <div className="mb-16 flex flex-col items-center text-center gap-4">
           <h2 className="font-serif text-4xl md:text-5xl font-light mb-4">Virtual Exhibition</h2>
           <p className="text-gray-600 dark:text-museum-muted max-w-2xl text-sm md:text-base leading-relaxed">
-            Step fully into the past. Explore our interactive 3D environment and discover the remnants of the ancient city of Balasagun right from your browser.
+            Step fully into the past. Explore our interactive VR tour and discover the remnants of the ancient city of Balasagun right from your browser.
           </p>
         </div>
 
@@ -337,6 +337,7 @@ export default function App() {
               <p className="font-serif text-xl md:text-2xl text-museum-dark dark:text-museum-light mb-2">Kubatbek Shakievich Tabaldiev</p>
               <p>Candidate of History science, Archeologist,</p>
               <p>Associate Professor, Kyrgyz-Turkish "Manas" University</p>
+              <p className="mt-2 text-xs italic tracking-wide text-museum-dark dark:text-museum-light/80 border-l-2 border-museum-accent pl-3 py-1 bg-black/[0.02] dark:bg-white/[0.02] rounded-r">Information regarding the Balbals was sourced from the published works and books by Kubatbek Shakievich Tabaldiev.</p>
               <p className="mt-2 tracking-widest"><a href="mailto:tarishah@freenet.kg" className="hover:text-museum-accent transition-colors">tarishah@freenet.kg</a></p>
             </div>
             <div>
